@@ -283,8 +283,8 @@ class _OtpState extends State<OtpVerification>
         from: _controller.value == 0.0 ? 1.0 : _controller.value);
     _startCountdown();
 
-    autoReadOTP();
-    navigate();
+    //autoReadOTP();
+    //navigate();
   }
 
   @override
