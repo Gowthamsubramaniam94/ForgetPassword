@@ -16,9 +16,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Forget Password'),
-      ),
+      appBar: _getAppbar,
       body: uiDesign(),
     );
   }
@@ -31,8 +29,24 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         key: formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(10.0),
+              child: Text(
+                'Forget Password?',
+                style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Text('Please enter your registered \nEmail ID to get OTP',
+                  textAlign: TextAlign.center,
+                  style: new TextStyle(
+                      fontSize: 18.0,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600)),
+            ),
             Padding(
               padding: EdgeInsets.all(10.0),
               child: TextFormField(
@@ -44,6 +58,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
                     hintText: "Email ID",
+                    labelText: "Email ID",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0))),
               ),
@@ -70,6 +85,24 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 ))
           ],
         ),
+      ),
+    );
+  }
+
+  // Returns "Appbar"
+  get _getAppbar {
+    return new AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0.0,
+      leading: new InkWell(
+        borderRadius: BorderRadius.circular(30.0),
+        child: new Icon(
+          Icons.arrow_back,
+          color: Colors.black54,
+        ),
+        onTap: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }

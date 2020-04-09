@@ -121,11 +121,17 @@ class _OtpState extends State<OtpVerification>
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Spacer(),
+            Spacer(),
             new Icon(Icons.access_time),
             new SizedBox(
               width: 5.0,
             ),
-            OtpTimer(_controller, 15.0, Colors.black)
+            OtpTimer(_controller, 15.0, Colors.black),
+            Spacer(),
+            Expanded(
+                child: IconButton(
+                    icon: Icon(Icons.arrow_forward), onPressed: navigate)),
           ],
         ),
       ),
@@ -283,7 +289,7 @@ class _OtpState extends State<OtpVerification>
         from: _controller.value == 0.0 ? 1.0 : _controller.value);
     _startCountdown();
 
-    //autoReadOTP();
+    autoReadOTP();
     //navigate();
   }
 

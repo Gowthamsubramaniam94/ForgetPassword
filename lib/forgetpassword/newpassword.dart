@@ -16,10 +16,26 @@ class _NewPasswordState extends State<NewPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Change password'),
-      ),
+      appBar: _getAppbar,
       body: uiDesign(),
+    );
+  }
+
+  // Returns "Appbar"
+  get _getAppbar {
+    return new AppBar(
+      backgroundColor: Colors.transparent,
+      elevation: 0.0,
+      leading: new InkWell(
+        borderRadius: BorderRadius.circular(30.0),
+        child: new Icon(
+          Icons.arrow_back,
+          color: Colors.black54,
+        ),
+        onTap: () {
+          Navigator.pop(context);
+        },
+      ),
     );
   }
 
@@ -30,9 +46,16 @@ class _NewPasswordState extends State<NewPassword> {
           autovalidate: _validate,
           key: formKey,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text(
+                  'New \nPassword',
+                  style: TextStyle(fontSize: 50.0, fontWeight: FontWeight.bold),
+                ),
+              ),
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: TextFormField(
